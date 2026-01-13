@@ -1,8 +1,8 @@
 #!/bin/sh
-set -eu
+set -e
 
-cd apps/api
+echo "Building API..."
+go build -o server ./apps/api/cmd/api
 
-go mod download
-go build -o server ./cmd/api
+echo "Starting API on port $PORT"
 exec ./server
